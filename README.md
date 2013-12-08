@@ -4,6 +4,8 @@ Version 0.01. See software licensing details below.
 
 PHPBayesClassify is a simple text classifier built in PHP.
 
+This is provided AS IS and may not work as intended. No responsibility over accuracy of output is assumed by the author.
+
 <h3>SETUP</h3>
 
 Upload PHPBayesClassify.php to your web server. Edit the class variables at the top of the document (the first two sections pertain to database information). Brief overview of variables that require editing:
