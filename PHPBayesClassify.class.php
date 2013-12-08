@@ -1,7 +1,5 @@
 <?php
 
-require_once( 'pdo-wrapper/class.db.php' );
-
 class bayesClassify {
 
 	//private database access variables
