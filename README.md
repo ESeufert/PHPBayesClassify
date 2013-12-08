@@ -7,39 +7,43 @@ PHPBayesClassify is a simple text classifier built in PHP.
 <h3>SETUP</h3>
 
 Upload PHPBayesClassify.php to your web server. Edit the class variables at the top of the document (the first two sections pertain to database information). Brief overview of variables that require editing:
-$dbName - the name of your database
-$dbHost - host location
-$dbUser - login username
-$dbPass - login password
+<ul>
+<li>$dbName - the name of your database</li>
+<li>$dbHost - host location</li>
+<li>$dbUser - login username</li>
+<li>$dbPass - login password</li>
 
-$wordMappingTableName - this is the name of the table that will store word frequency counts. If this table doesn't exist, it will be created. No need to do anything other than name this.
-$objectTableName -- this is the table that stores the "objects" (things that are being classified). This should already exist, and the class does not modify it in any way other than querying from it. This might be a table containing blog posts or stored tweets. The class assumes this table has at least three columns: a date column that stores the date on which each object was created, a title column that stores the string that will be classified (eg. the title of a blog post or the content of a tweet), and a class column that stores a classification / category in numeric format.
-$daysBack = the number of days of data (measured with the date column) over which the classifier should operate (eg. if this is set to 7, objects will be fetched that were created in the last 7 days, and the trianing routine would train the classifier on that dataset)
-$objectDateColumnName - the name of the date column in the table
-$objectTitleColumnName - the name of the title column in the table
-$objectClassColumnName - the name of the category column in the table (NB! this should be numeric!)
+<li>$wordMappingTableName - this is the name of the table that will store word frequency counts. If this table doesn't exist, it will be created. No need to do anything other than name this.</li>
+<li>$objectTableName -- this is the table that stores the "objects" (things that are being classified). This should already exist, and the class does not modify it in any way other than querying from it. This might be a table containing blog posts or stored tweets. The class assumes this table has at least three columns: a date column that stores the date on which each object was created, a title column that stores the string that will be classified (eg. the title of a blog post or the content of a tweet), and a class column that stores a classification / category in numeric format.</li>
+<li>$daysBack = the number of days of data (measured with the date column) over which the classifier should operate (eg. if this is set to 7, objects will be fetched that were created in the last 7 days, and the trianing routine would train the classifier on that dataset)</li>
+<li>$objectDateColumnName - the name of the date column in the table</li>
+<li>$objectTitleColumnName - the name of the title column in the table</li>
+<li>$objectClassColumnName - the name of the category column in the table (NB! this should be numeric!)</li>
+</ul>
 
 The stopwords array can also be edited. Stopwords are words that are stripped from all titles.
 
 <h3>HOW TO USE</h3>
 
-1) Include the class in your file
+<ol>
+<li>Include the class in your file<br/><br/>
 
-(eg. require_once( '/home/public_html/PHPBayesClassify.class.php' );
+(eg. require_once( '/home/public_html/PHPBayesClassify.class.php' );</li>
 
-2) Initialize class
+<li>Initialize class
 
-eg. $bc = new bayesClassify();
+eg. $bc = new bayesClassify();</li>
 
-3) Train against back data
+<li>Train against back data
 
-eg. $bc->train( );
+eg. $bc->train( );</li>
 
-4) Classify a string
+<li>Classify a string<br/><br/>
 
-eg. $class = $bc->classify( 'This is a string I want to classify' );
+eg. $class = $bc->classify( 'This is a string I want to classify' );<br/><br/>
 
-The classify function returns an array of classifications, each with a 'yes' / 'no' probability indicator.
+The classify function returns an array of classifications, each with a 'yes' / 'no' probability indicator.</li>
+</ol>
 
 <h3>LICENSE</h3>
 
