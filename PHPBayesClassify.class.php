@@ -263,7 +263,7 @@ class bayesClassify {
 	private function joint_conditional_probability( $vals ) {
 		$product = 1;
 		foreach ( $vals as $val ) {
-			$product = $product * $val;
+			$product *= $val;
 		}
 		return $product;
 	}
@@ -310,6 +310,8 @@ class bayesClassify {
 
 			}
 		}
+
+		return $p_classifications;
 
 	}
 
