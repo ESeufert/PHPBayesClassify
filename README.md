@@ -2,7 +2,7 @@
 
 Version 0.01. See software licensing details below.
 
-PHPBayesClassify is a simple text classifier built in PHP.
+PHPBayesClassify is a simple text classifier built in PHP. Requires MySQL.
 
 This is provided AS IS and may not work as intended. No responsibility over accuracy of output is assumed by the author.
 

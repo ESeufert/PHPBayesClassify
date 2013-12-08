@@ -68,16 +68,14 @@ class bayesClassify {
     	// strip out 's (like king's)
     	$string = str_replace( "'s", "", $string );
     	//decode into utf8
-    	$string = str_replacE( "?s", "", $string );
     	$string = utf8_decode( $string );
-    	//
+    	//remove html entities
     	$string = $this->htmlallentities( $string );
     	// Clean up things like &amp;
     	$string = html_entity_decode( $string );
     	// Strip out any url-encoded stuff
     	$string = urldecode( $string );
-    	// Replace non-AlNum characters with space
-    	//$string = preg_replace('/[^A-Za-z0-9]-&/', '', $string);
+    	// Replace all non letter characters
     	$string = preg_replace( "/[^A-Za-z[:space:]]/", "", $string );
     	//strip all filler words
     	$string = $this->strip_filler( $string );
@@ -269,7 +267,7 @@ class bayesClassify {
 	    return false;
 	}
 
-	private function joint_conditional_probability( $vals ) {
+	private function joint_probability( $vals ) {
 		$product = 1;
 		foreach ( $vals as $val ) {
 			$product *= $val;
@@ -308,8 +306,8 @@ class bayesClassify {
 				array_push( $yes, ( $value[ 'yes' ] / ( $this->totalObjects )));
 				array_push( $no , ( $value[ 'no' ] / ( $this->totalObjects )));
 
-				$joint_prob_yes = $this->joint_conditional_probability( $yes );
-				$joint_prob_no = $this->joint_conditional_probability( $no );
+				$joint_prob_yes = $this->joint_probability( $yes );
+				$joint_prob_no = $this->joint_probability( $no );
 
 				$prop_yes = $joint_prob_yes / ( $joint_prob_yes + $joint_prob_no );
 				$prop_no = $joint_prob_no / ( $joint_prob_yes + $joint_prob_no );
