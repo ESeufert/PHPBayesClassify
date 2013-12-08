@@ -17,7 +17,7 @@ Upload PHPBayesClassify.php to your web server. Edit the class variables at the 
 
 <li>$wordMappingTableName - this is the name of the table that will store word frequency counts. If this table doesn't exist, it will be created. No need to do anything other than name this.</li>
 <li>$objectTableName -- this is the table that stores the "objects" (things that are being classified). This should already exist, and the class does not modify it in any way other than querying from it. This might be a table containing blog posts or stored tweets. The class assumes this table has at least three columns: a date column that stores the date on which each object was created, a title column that stores the string that will be classified (eg. the title of a blog post or the content of a tweet), and a class column that stores a classification / category in numeric format.</li>
-<li>$daysBack = the number of days of data (measured with the date column) over which the classifier should operate (eg. if this is set to 7, objects will be fetched that were created in the last 7 days, and the trianing routine would train the classifier on that dataset)</li>
+<li>$daysBack = the number of days of data (measured with the date column) over which the classifier should operate (eg. if this is set to 7, objects will be fetched that were created in the last 7 days, and the training routine would train the classifier on that dataset)</li>
 <li>$objectDateColumnName - the name of the date column in the table</li>
 <li>$objectTitleColumnName - the name of the title column in the table</li>
 <li>$objectClassColumnName - the name of the category column in the table (NB! this should be numeric!)</li>
