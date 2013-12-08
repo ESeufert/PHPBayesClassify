@@ -26,7 +26,7 @@ The stopwords array can also be edited. Stopwords are words that are stripped fr
 <h3>HOW TO USE</h3>
 
 <ol>
-<li>Include the class in your file<br/><br/>
+<li>Include the class in your file<br/>
 
 (eg. require_once( '/home/public_html/PHPBayesClassify.class.php' );</li>
 
@@ -38,9 +38,9 @@ eg. $bc = new bayesClassify();</li>
 
 eg. $bc->train( );</li>
 
-<li>Classify a string<br/><br/>
+<li>Classify a string<br/>
 
-eg. $class = $bc->classify( 'This is a string I want to classify' );<br/><br/>
+eg. $class = $bc->classify( 'This is a string I want to classify' );<br/>
 
 The classify function returns an array of classifications, each with a 'yes' / 'no' probability indicator.</li>
 </ol>
